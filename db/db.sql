@@ -35,6 +35,15 @@ CREATE TABLE emprestimos (
     FOREIGN KEY (id_leitor) REFERENCES leitores(id_leitor)
 );
 
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    senha VARCHAR(255) NOT NULL
+);
+
+INSERT INTO usuarios(email, senha) VALUES
+('teste@biblioteca.com', '$2y$10$mauoHD1lbZ5.pLCD5MfSUez.PJhGN6mDa8UqwoAVVRYM85H9zgZf6');
+
 INSERT INTO autores (nome, nacionalidade, ano_nascimento) VALUES
 ('Machado de Assis', 'Brasileira', 1839),
 ('Clarice Lispector', 'Brasileira', 1920),

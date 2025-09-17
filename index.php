@@ -13,14 +13,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $user = $_POST["email"] ?? "";
     $pass = $_POST["password"] ?? "";
 
-    $stmt = $mysqli->prepare("SELECT id, email, senha FROM usuarios WHERE email=? AND senha=?");
-    $stmt->bind_param("ss", $user, $pass);
+    $stmt = $conn->prepare("SELECT id, email, senha FROM usuarios WHERE email=?");
+    $stmt->bind_param("s", $user);
     $stmt->execute();
     $result = $stmt->get_result();
     $dados = $result->fetch_assoc();
     $stmt->close();
-
-    if ($dados) {
+    
+    if (password_verify($pass, $dados['senha'])) {
         $_SESSION["user_id"] = $dados["id"];
         $_SESSION["email"] = $dados["email"];
         header("Location: public/emprestimos/read.php");
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 ?>
 
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,11 +43,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
     <h1>Biblioteca</h1>
-    <p>Bem vindo ao sistema de gerenciamento de biblioteca! Faça login abaixo.</p>
+    <p>Bem vindo ao sistema de gerenciamento de biblioteca! Faça login abaixo.</p><br>
+    <?php if ($msg): ?><p class="alert alert-warning" role="alert" style="width: fit-content;"><?= $msg ?></p><?php endif; ?>
     <form action="" method="post">
         <input type="email" name="email" id="email" placeholder="E-mail">
         <input type="password" name="password" id="password" placeholder="Senha">
         <button type="submit">Login</button>
     </form>
+
+    <p class="alert alert-info" role="alert" style="width: fit-content;">
+        Sistema de teste, utilize o e-mail teste@biblioteca.com e a senha Teste_123
+    </p>
 </body>
 </html>
