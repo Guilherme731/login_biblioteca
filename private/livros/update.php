@@ -41,6 +41,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
+    <header class="navbar navbar-expand-lg bg-body-secondary">
+        <div class="container-fluid">
+            <span class="navbar-brand"><?= $_SESSION['email'] ?></span>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="../emprestimos/read.php">Empréstimos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../autores/read.php">Autores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../leitores/read.php">Leitores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Livros</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <a href="../../index.php?logout=1" class="btn btn-danger">Sair</a>
+            </div>
+        </div>
+    </header>
     <h2>Atualizar Livro:</h2>
     <form action="" method="post">
         <div class="flex">
