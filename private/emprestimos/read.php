@@ -77,7 +77,7 @@ if ($resultado->num_rows > 0) {
 
     <form method="get">
         <h3>Filtros:</h3>
-        <label>Time:</label>
+        <label>Leitor:</label>
         <select name="leitor">
             <option></option>
             <?php foreach ($resultLeitores as $row): ?>

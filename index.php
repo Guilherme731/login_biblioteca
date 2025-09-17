@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (password_verify($pass, $dados['senha'])) {
         $_SESSION["user_id"] = $dados["id"];
         $_SESSION["email"] = $dados["email"];
-        header("Location: public/emprestimos/read.php");
+        header("Location: private/emprestimos/read.php");
         exit;
     } else {
         $msg = "Usuário ou senha incorretos!";
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="public/style/style.css">
+    <link rel="stylesheet" href="private/style/style.css">
     <title>Login - Biblioteca</title>
 </head>
 <body>
