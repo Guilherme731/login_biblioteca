@@ -1,5 +1,6 @@
 <?php
 include('config/db.php');
+session_start();
 
 if (isset($_GET['logout'])) {
     session_destroy();
@@ -7,6 +8,9 @@ if (isset($_GET['logout'])) {
     exit;
 }
 
+if(isset($_SESSION['email'])){
+    header("Location: private/emprestimos/read.php");
+}
 
 $msg = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {

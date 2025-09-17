@@ -1,6 +1,7 @@
 <?php
 
 include '../../config/db.php';
+include '../funcoesPadrao.php';
 
 function buildQueryString($exclude = [])
 {
@@ -66,14 +67,19 @@ if ($resultado->num_rows > 0) {
     <link rel="stylesheet" href="../style/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <title>Empréstimos</title>
+</head>
+
+<body>
+    <header>
+        <span><?=$_SESSION['email']?></span>
+        <a href="../../index.php?logout=1" class="btn btn-danger">Sair</a>
+    </header>
+
     <?php
     $queryComConcluidos = buildQueryString(['pagina']);
     $linkConcluidos = "read.php?$queryComConcluidos&concluidos=sim";
     ?>
     <a href="<?= $linkConcluidos ?>">Mostrar Concluídos</a><br>
-</head>
-
-<body>
 
     <form method="get">
         <h3>Filtros:</h3>

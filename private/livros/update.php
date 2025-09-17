@@ -1,5 +1,6 @@
 <?php
 include '../../config/db.php';
+include '../funcoesPadrao.php';
 
 $sqlAutores = "SELECT id_autor, nome FROM autores";
 $resultAutores = $conn->query($sqlAutores);

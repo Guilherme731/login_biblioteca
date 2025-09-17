@@ -1,5 +1,6 @@
 <?php
 include '../../config/db.php';
+include '../funcoesPadrao.php';
 
 $sqlLivros = "SELECT id_livro, titulo FROM livros";
 $resultLivros = $conn->query($sqlLivros);

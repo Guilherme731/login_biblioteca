@@ -1,6 +1,7 @@
 <?php
 
 include '../../config/db.php';
+include '../funcoesPadrao.php';
 
 function buildQueryString($exclude = []) {
     $params = $_GET;

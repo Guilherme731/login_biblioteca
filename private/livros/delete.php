@@ -18,6 +18,7 @@
 </html>
     <?php
         include '../../config/db.php';
+        include '../funcoesPadrao.php';
 
         if(isset($_GET['id'])){
             $id = $_GET['id'];
